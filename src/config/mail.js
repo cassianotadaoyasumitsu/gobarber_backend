@@ -18,5 +18,5 @@ Mailgun
 Sparkpost
 Mandril (Mailchimp)
 
-Mailtrap (DEV)
+Usando Mailtrap (DEV)
 */
