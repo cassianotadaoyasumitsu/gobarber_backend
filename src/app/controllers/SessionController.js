@@ -3,7 +3,6 @@ import * as Yup from 'yup';
 
 import User from '../models/User';
 import File from '../models/File';
-
 import authConfig from '../../config/auth';
 
 class SessionController {
@@ -39,13 +38,14 @@ class SessionController {
     if (!(await user.checkPassword(password))) {
       return res.status(401).json({ error: 'Password does not match' });
     }
-    const { id, name, avatar } = user;
+    const { id, name, avatar, provider } = user;
 
     return res.json({
       user: {
         id,
         name,
         email,
+        provider,
         avatar,
       },
       token: jwt.sign({ id }, authConfig.secret, {
